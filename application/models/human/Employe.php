@@ -7,7 +7,23 @@ class Employe extends CI_Model {
         parent::__construct();
     }
 
-    
+    // MODIFIER EMPLOYE
+    public function updateEmploye($id_employe, $nom, $date, $exp, $id_departement){
+        // mdp tsy nmodifieko fa kamo ah
+        // is admin ko
+        // is_active rehefa roahana le mpiasa
+
+        $data = array(
+            'nom_employe' => $nom_employe,
+            'date' => $date,
+            'exp' => $exp,
+            'id_departement' => $id_departement
+        );
+
+        $this->db->where('id_employe', $id_employe);
+        $this->db->update('employe', $data);
+    }
+
 
     // PRENDRE LA LISTE DES EMPLOYES via VIEW
     public function getEmployes(){
